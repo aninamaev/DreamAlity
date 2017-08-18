@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Meaning.View.MotivationPage"
+             BackgroundColor="{Binding PageColor}"
+             Padding="{Binding PagePadding}"
+             Title="My DreamAlity">
+  <Grid BackgroundColor="{Binding PageColor}" RowSpacing="7">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="3*"/>
+      <RowDefinition Height="7*"/>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0" Padding="3,3,3,3" BackgroundColor="{Binding ContrastColor}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="21"/>
+      </Grid.RowDefinitions>
+      <Image Grid.Row="0" Source="{Binding ImageSource}" Aspect="AspectFill"/>
+      <Label Grid.Row="1" Text="{Binding ImageText}" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+    </Grid>
+    <ScrollView Grid.Row="1" Padding="3,3,3,3">
+      <Label Text="{Binding WhyMotivationText}" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" FontSize="19" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
+    </ScrollView>
+  </Grid>
+</ContentPage>

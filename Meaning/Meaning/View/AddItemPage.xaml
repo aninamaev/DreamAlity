@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Meaning.View.AddItemPage"
+             BackgroundColor="{Binding PageColor}"
+             Padding="{Binding PagePadding}">
+
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="2*"/>
+      </Grid.RowDefinitions>
+      <ScrollView Grid.Row="0">
+      <StackLayout Spacing="30" >
+        <StackLayout Spacing="10">
+          <Label Text="{Binding ContentLabelText}" BackgroundColor="{Binding PageColor}" TextColor="{Binding ContrastColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <Editor x:Name="ContentText" Text="{Binding Content}" FontSize="19" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}"/>
+        </StackLayout>
+        <StackLayout Spacing="10">
+          <Label Text="{Binding NotesLabelText}" BackgroundColor="{Binding PageColor}" TextColor="{Binding ContrastColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <Editor x:Name="NotesText" Text="{Binding Notes}" FontSize="19" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}"/>
+        </StackLayout>
+        <StackLayout Spacing="10">
+          <Label Text="Status" BackgroundColor="{Binding PageColor}" TextColor="{Binding ContrastColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <Picker x:Name="StatusPicker" Title="Status" BackgroundColor="{Binding ContrastColor}" SelectedIndex="{Binding PickerIndex}">
+            <Picker.Items>
+              <x:String>LevelOne</x:String>
+              <x:String>LevelTwo</x:String>
+              <x:String>LevelThree</x:String>
+              <x:String>LevelFour</x:String>
+              <x:String>LevelFive</x:String>
+            </Picker.Items>
+          </Picker>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+
+      <Grid Grid.Row="1" RowSpacing="0" BackgroundColor="{Binding ContrastColor}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="8*"/>
+          <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="{Binding AddItemImageSource}" Aspect="AspectFill"/>
+        <Label Grid.Row="1" Text="{Binding AddItemMotivationText}" FontSize="19" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+      </Grid>
+    </Grid>
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Save" Clicked="SaveItemClicked"/>
+  </ContentPage.ToolbarItems>
+</ContentPage>

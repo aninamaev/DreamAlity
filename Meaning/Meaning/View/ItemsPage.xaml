@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Meaning.View.ItemsPage"
+             BackgroundColor="{Binding PageColor}"
+             Padding="{Binding PagePadding}">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="2*"/>
+      <RowDefinition Height="6*"/>
+      <RowDefinition Height="2*"/>
+    </Grid.RowDefinitions>
+    <Image Grid.Row="0" Source="{Binding ItemImageSource}" Aspect="AspectFill"/>
+    <ListView Grid.Row="1" x:Name="ItemsListView" ItemsSource="{Binding ItemsCollection}" BackgroundColor="{Binding ContrastColor}" SeparatorColor="{Binding PageColor}" HasUnevenRows="True" ItemSelected="OneItemSelected">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem Clicked="OnDeleteItem" CommandParameter="{Binding Id}" Text="Delete" IsDestructive="True"/>
+            </ViewCell.ContextActions>
+            <Grid RowSpacing="1" Padding="4,4,4,4">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="16"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+              <Label Grid.Row="0" Text="{Binding Status}" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" FontSize="12" HorizontalTextAlignment="End" VerticalTextAlignment="Center"/>
+              <StackLayout Grid.Row="1" BackgroundColor="{Binding ContrastColor}" Padding="0,0,0,0">
+                <Label Text="{Binding Content}" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" FontSize="21" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Text="{Binding Notes}" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+              </StackLayout>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <ScrollView Grid.Row="2">
+      <Label Text="{Binding ItemMotivation}" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" FontSize="19" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="WordWrap"/>
+    </ScrollView>
+  </Grid>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="+Add" Clicked="AddNewItemClicked"/>
+  </ContentPage.ToolbarItems>
+</ContentPage>

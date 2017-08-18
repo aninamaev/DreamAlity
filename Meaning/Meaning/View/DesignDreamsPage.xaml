@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:meaning="clr-namespace:Meaning;assembly=Meaning"
+             x:Class="Meaning.View.DesignDreamsPage"
+             BackgroundColor="{Binding PageColor}"
+             Padding="{Binding PagePadding}">
+  <Grid RowSpacing="{Binding GeneralVisualItemsSpacing}" BackgroundColor="{Binding PageColor}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8.4*"/>
+      <RowDefinition Height="1.6*"/>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0" BackgroundColor="White">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8.4*"/>
+        <RowDefinition Height="1.6*"/>
+      </Grid.RowDefinitions>
+      <Image Grid.Row="0" Source="{Binding DesignImageSource}" Aspect="AspectFill"/>
+      <Label Grid.Row="1" Text="{Binding DesignItemText}" BackgroundColor="White" TextColor="{Binding PageColor}" FontSize="28" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+    </Grid>
+    <Grid Grid.Row="1">
+      <Image Aspect="AspectFill" Source="d1.jpg" Focused="MyPurposesClicked"/>
+      <Button BackgroundColor="Transparent" TextColor="{Binding PageColor}" FontSize="28" Clicked="MyPurposesClicked" Text="Following dreams!"/>
+    </Grid>
+  </Grid>
+</ContentPage>

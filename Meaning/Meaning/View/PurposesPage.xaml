@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Meaning.View.PurposesPage"
+             BackgroundColor="{Binding PageColor}"
+             Padding="{Binding PagePadding}">
+  <Grid BackgroundColor="{Binding PageColor}" RowSpacing="{Binding GeneralVisualItemsSpacing}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="2.5*"/>
+      <RowDefinition Height="7.5*"/>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0" RowSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="2*"/>
+      </Grid.RowDefinitions>
+      <Image Grid.Row="0" Source="{Binding PurposesImageSource}" Aspect="AspectFill"/>
+      <Label Grid.Row="1" Text="{Binding MotivationItemText}" FontSize="19" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+    </Grid>
+    <ListView Grid.Row="1" x:Name="PurposesListView" ItemsSource="{Binding PurposesCollection}" ItemSelected="PurposeSelected" BackgroundColor="{Binding ContrastColor}" HasUnevenRows="True" SeparatorColor="{Binding PageColor}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem Clicked="OnDeletePurpose" CommandParameter="{Binding Id}" Text="Delete" IsDestructive="True"/>
+            </ViewCell.ContextActions>
+            <StackLayout Padding="7,3,3,3">
+              <Label Text="{Binding Content}" FontSize="21" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="7*"/>
+                  <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="{Binding DueDate}" FontSize="16" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Grid.Column="1" Text="{Binding ProgressLevel}" FontSize="16" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+              </Grid>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </Grid>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="+Add" Clicked="AddNewPurposeClicked"/>
+  </ContentPage.ToolbarItems>
+</ContentPage>

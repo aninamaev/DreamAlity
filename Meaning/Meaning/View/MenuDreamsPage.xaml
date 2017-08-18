@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Meaning.View.MenuDreamsPage"
+             BackgroundColor="{Binding PageColor}"
+             Padding="{Binding PagePadding}">
+  <StackLayout Spacing="25" BackgroundColor="{Binding ContrastColor}" Padding="12,25,12,25">
+
+    <Grid>
+      <Image Aspect="AspectFill" Source="d1.jpg"/>
+      <Button BackgroundColor="Transparent" TextColor="{Binding ContrastColor}" FontSize="22" Text="About this app" x:Name="MotivationButton" Clicked="OnMotivationClicked"/>
+    </Grid>
+
+    <Grid>
+      <Image Aspect="AspectFill" Source="d1.jpg"/>
+      <Button BackgroundColor="Transparent" TextColor="{Binding ContrastColor}" FontSize="22" Text="Questions" x:Name="QuestionsButton" Clicked="OnQuestionsClicked"/>
+    </Grid>
+
+    <Grid>
+      <Image Aspect="AspectFill" Source="d1.jpg"/>
+      <Button BackgroundColor="Transparent" TextColor="{Binding ContrastColor}" FontSize="22" Text="Quotes" x:Name="QuotesButton" Clicked="OnQuotesClicked"/>
+    </Grid>
+
+    <Grid>
+      <Image Aspect="AspectFill" Source="d1.jpg"/>
+      <Button BackgroundColor="Transparent" TextColor="{Binding ContrastColor}" FontSize="22" Text="Suggestion" x:Name="SuggestionButton" Clicked="OnSuggestionsClicked"/>
+    </Grid>
+
+    <Grid>
+      <Image Aspect="AspectFill" Source="d1.jpg"/>
+      <Button BackgroundColor="Transparent" TextColor="{Binding ContrastColor}" FontSize="22" Text="Forget about" x:Name="ForgetAboutButton" Clicked="OnForgetAboutClicked"/>
+    </Grid>
+
+  </StackLayout>
+</ContentPage>

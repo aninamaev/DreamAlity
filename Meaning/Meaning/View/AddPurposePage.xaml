@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Meaning.View.AddPurposePage"
+             BackgroundColor="{Binding PageColor}"
+             Padding="{Binding PagePadding}">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="2*"/>
+    </Grid.RowDefinitions>
+    <ScrollView Grid.Row="0">
+      <StackLayout Spacing="25">
+        <StackLayout Spacing="10">
+          <Label Text="{Binding AddDreamLabel}" BackgroundColor="{Binding PageColor}" TextColor="{Binding ContrastColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <Editor x:Name="ContentText" Text="{Binding Content}" FontSize="19" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}"/>
+        </StackLayout>
+        <StackLayout Spacing="10">
+          <Label Text="{Binding NotesLabelText}" BackgroundColor="{Binding PageColor}" TextColor="{Binding ContrastColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <Editor x:Name="NotesText" Text="{Binding Notes}" FontSize="19" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}"/>
+        </StackLayout>
+        <StackLayout Spacing="10">
+          <Label Text="{Binding DueDateLabel}" BackgroundColor="{Binding PageColor}" TextColor="{Binding ContrastColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <DatePicker x:Name="DatePicker" Date="{Binding CurrentDisplayedDate}" MinimumDate="{Binding MinimumDate}" Format="D" VerticalOptions="CenterAndExpand" BackgroundColor="{Binding ContrastColor}"/>
+        </StackLayout>
+        <StackLayout Spacing="10">
+          <Label Text="{Binding ProgressTextLabel}" BackgroundColor="{Binding PageColor}" TextColor="{Binding ContrastColor}" FontSize="17" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+          <Slider x:Name="Slider" Maximum="1" Minimum="0" Value="{Binding ProgressValue}" BackgroundColor="{Binding ContrastColor}"/>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+    <Grid Grid.Row="1" RowSpacing="0" BackgroundColor="{Binding ContrastColor}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="8*"/>
+        <RowDefinition Height="2*"/>
+      </Grid.RowDefinitions>
+      <Image Grid.Row="0" Source="{Binding AddDreamImageSource}" Aspect="AspectFill"/>
+      <Label Grid.Row="1" Text="{Binding AddDreamMotivationText}" FontSize="19" BackgroundColor="{Binding ContrastColor}" TextColor="{Binding PageColor}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+    </Grid>
+  </Grid>
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Save" Clicked="SavePurposeClicked"/>
+  </ContentPage.ToolbarItems>
+</ContentPage>
